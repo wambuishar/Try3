@@ -69,7 +69,7 @@
 </header>
 
 
-  <p>sjds</p>
+  
 <main class="container-fluid" >
     <nav class="container-fluid navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
