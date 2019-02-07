@@ -57,7 +57,7 @@
 <div class="row">
 	<div class="col-sm-12" style="background-color:;height: 70px;"><div style="text-align: center;font-size: 20px;margin-top: 10px;">POSTS</div></div>
 </div>
-<div class="row" style="height: 500px;">
+<div class="row" style="height: 600px;">
 	<div class="col-sm-4" >
 		<div class="card h-75"></div>
 		
