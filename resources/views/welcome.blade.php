@@ -405,7 +405,7 @@
                         <div class="modal-content">
                             <div class="row" style="height: 75%">
                                 <div class="col-lg-8" style="">
-                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
                                                 <img class="d-block w-100" src="{{ asset('images/didi.jpg') }}"; alt="First slide">
@@ -445,94 +445,119 @@
                                                 <div class="lastcomment" style="margin-bottom:100%;">user_name ....comment</div>
                                             </div>
                                             <div class="row" style="border-bottom: ridge; height: 10% ;">
-                                                <div class="col-lg-6"><button style="border:none;background-color: white; margin-top:15%"><span><b>527</b></span><span> Likes</span><br><img src="{{ asset('images/like.svg') }}" style="width: 50px;height: 20px; margin-top: 5px;"></button></div>
-                                                <div class="col-lg-6"><button style="border:none;background-color: white; margin-top:15%;margin-left:-30px;"><span><b>            527 </b></span><span> Comments</span><br><img src="{{ asset('images/chat.png') }}" style="width: 20px;height: 20px; margin-top: 5px;"></button></div>
-                                                
-                                            </div>
-                                            <div class="comment" style="margin-top: 5px;">
-                                                <textarea placeholder="Add a comment...." style="border: hidden; margin-top: 10px; width: 100% "></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="scroll" style="position: absolute;margin-top: 130%">
+                                                <div class="col-lg-6"><button onclick="like()" style="border:none; background-color: white; margin-top:15%">
+                                                    <span><b>527</b></span>
+                                                    <span> Likes</span>
+                                                    <br>
+                                                    <img id="btn_like" src="{{ asset('images/likes.png') }}" style="width: 20px;height: 20px;background-color:  margin-top: 5px;"></button>
+                                                         <script type="text/javascript">
+                                                         function like()
+                                                          {
+                                                         $('#btn_like').attr('src', '/images/liked.png');
+                                                          }
+                                                        </script>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <button onclick="comment()" style="border:none; margin-top:15%;margin-left:-30px; background-color: white;">
+                                                    <span><b>527 </b></span><span> Comments</span>
+                                                    <br><img id="btn_comment" src="{{ asset('images/chat.png') }}" style="width: 20px;height: 20px; ">
+                                                    <script type="text/javascript">
+                                                    function comment()
+                                                          {
+                                                                document.getElementById("mycomment").focus();
+                                                          }
+                                                       
+                                                   </script>
 
+                                               </button>
+                                                
+                                               
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="comment" style="margin-top: 5px;">
+                                            <textarea id="mycomment" placeholder="Add a comment...." style="border: hidden; margin-top: 10px; width: 100% "></textarea>
                                         </div>
                                     </div>
-                                    
+                                    <div class="scroll" style="position: absolute;margin-top: 130%">
+                                    </div>
                                 </div>
+                                
                             </div>
                         </div>
-                        
-                        
                     </div>
+                    
+                    
                 </div>
-            </main>
-            <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/popper.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
-            <script type="text/javascript">
-            $(function() {
-            var mobileScreenTreshold = 1024;
-            $(".hvrbox").click(function(e) {
-            if($(window).width() <= mobileScreenTreshold) {
-            if($(this).hasClass("active")) {
-            $(this).removeClass("active");
-            } else {
-            e.preventDefault();
-            $(this).addClass("active");
-            }
-            } else {
-            $(this).removeClass("active");
-            }
-            });
-            // by default
-            $('#login_modal').show();
-            $('#register_modal').hide();
-            $('#btn_login').click(function (e) {
-            $('#login_modal').show();
-            $('#register_modal').hide();
-            });
-            $('#btn_reg').click(function (e) {
-            $('#register_modal').show();
-            $('#login_modal').hide();
-            });
-            });
-            </script>
+            </div>
         </main>
-        <footer >
-            <div class="footer">
-                <div class="row">
-                    <div class="col-sm-4" style="margin-top: 20px;font-family: 'dancing'">
-                        <div> <h3>CONNECT</h3></div>
-                        <div style="font-size: 20px;"> <h5>Email: curlystands@gmail.com</h5></div>
-                        <div id="socialmedia">
-                            <ul style="list-style: none; margin-left:130px;" class="d-flex">
-                                <li style="background-image: url(svg/facebook.svg); width: 40px; height: 40px;" onclick="window.open('https://www.facebook.com/Curlystrands-356839041805064/', '_blank')">
-                                    <i class="fa fa-stack-overflow"></i>
-                                </li>
-                                <li style="background-image: url(svg/instagram.svg);width: 40px; height: 40px;margin-left: 10px;"onclick="window.open('https://www.instagram.com/', '_blank')"><i class="fa fa-twitter"></i></li>
-                                <li style="background-image: url(svg/pinterest.svg);width: 40px; height: 40px;margin-left: 10px;"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li style="background-image: url(svg/twitter.svg);width: 40px; height: 40px;margin-left: 10px;"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                            
-                        </div>
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/popper.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+        <script type="text/javascript">
+        $(function() {
+        var mobileScreenTreshold = 1024;
+        $(".hvrbox").click(function(e) {
+        if($(window).width() <= mobileScreenTreshold) {
+        if($(this).hasClass("active")) {
+        $(this).removeClass("active");
+        } else {
+        e.preventDefault();
+        $(this).addClass("active");
+        }
+        } else {
+        $(this).removeClass("active");
+        }
+        });
+        // by default
+        $('#login_modal').show();
+        $('#register_modal').hide();
+        $('#btn_login').click(function (e) {
+        $('#login_modal').show();
+        $('#register_modal').hide();
+        });
+        $('#btn_reg').click(function (e) {
+        $('#register_modal').show();
+        $('#login_modal').hide();
+        });
+        });
+        </script>
+    </main>
+    <footer >
+        <div class="footer">
+            <div class="row">
+                <div class="col-sm-4" style="margin-top: 20px;font-family: 'dancing'">
+                    <div> <h3>CONNECT</h3></div>
+                    <div style="font-size: 20px;"> <h5>Email: curlystands@gmail.com</h5></div>
+                    <div id="socialmedia">
+                        <ul style="list-style: none; margin-left:130px;" class="d-flex">
+                            <li style="background-image: url(svg/facebook.svg); width: 40px; height: 40px;" onclick="window.open('https://www.facebook.com/Curlystrands-356839041805064/', '_blank')">
+                                <i class="fa fa-stack-overflow"></i>
+                            </li>
+                            <li style="background-image: url(svg/instagram.svg);width: 40px; height: 40px;margin-left: 10px;"onclick="window.open('https://www.instagram.com/', '_blank')"><i class="fa fa-twitter"></i></li>
+                            <li style="background-image: url(svg/pinterest.svg);width: 40px; height: 40px;margin-left: 10px;"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li style="background-image: url(svg/twitter.svg);width: 40px; height: 40px;margin-left: 10px;"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                        
                     </div>
-                    <div class="col-sm-4" style="margin-top: 20px; font-family: 'dancing'">
-                        <div > <h3>LEARN</h3>
-                            <div id="learn">
-                                <p>Hair Care</p>
-                                <p>Hair review</p>
-                                <p>What is my hair type?</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4" style="margin-top: 20px; font-family: 'dancing'">
-                        <div><h3>ABOUT</h3>
-                            <div id="about" style="font-family: 'dancing'">
-                                <p>Our Story</p>
-                            </div></div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 20px; font-family: 'dancing'">
+                    <div > <h3>LEARN</h3>
+                        <div id="learn">
+                            <p>Hair Care</p>
+                            <p>Hair review</p>
+                            <p>What is my hair type?</p>
                         </div>
                     </div>
                 </div>
-            </footer>
-            
-        </html>
+                <div class="col-sm-4" style="margin-top: 20px; font-family: 'dancing'">
+                    <div><h3>ABOUT</h3>
+                        <div id="about" style="font-family: 'dancing'">
+                            <p>Our Story</p>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+    </html>
